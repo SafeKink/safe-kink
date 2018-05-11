@@ -6,14 +6,14 @@ if (process.env.JAWSDB_URL) {
 	config = process.env.JAWSDB_URL;
 } else {
 	// Develoment Database Configuration
-config = {
+	config = {
 		host: process.env.MYSQL_HOST_DEVELOPMENT,
 		port: process.env.MYSQL_PORT_DEVELOPMENT,
 		user: process.env.MYSQL_USER_DEVELOPMENT,
 		password: process.env.MYSQL_PASSWORD_DEVELOPMENT,
 		database: process.env.MYSQL_DATABASE_DEVELOPMENT
 	}
-	console.log(config);
+	// console.log(config);
 }
 
 var conn = mysql.createConnection(config);
