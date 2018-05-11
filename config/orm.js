@@ -1,6 +1,6 @@
-const connection = require('./connection');
+const connection = require("./connection");
 
-// Print questionmarks in the quert string
+// Print questionmarks in the query string
 function printQuestionMarks(num) {
 	var arr = [];
 	for (var i = 0; i < num; i++) { arr.push("?") }
@@ -21,7 +21,8 @@ function objToSql(ob) {
 	return arr.toString();
 }
 
-// Object for all our SQL statement functions.
+// ORM Declaration
+
 var orm = {
 	all: function (tableInput, cb) {
 		var queryString = `SELECT * FROM ${tableInput}`;
@@ -68,5 +69,5 @@ var orm = {
 		});
 	}
 };
-// Export the orm object for the model (burger.js).
+// Export the orm object for the model.
 module.exports = orm;
