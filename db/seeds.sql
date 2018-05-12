@@ -1,3 +1,5 @@
+USE kink_db;
+
 /*
 -- states table seeds
 */
