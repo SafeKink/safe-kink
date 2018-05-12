@@ -1,0 +1,1 @@
+console.log("Public safekink.js is online");

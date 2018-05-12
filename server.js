@@ -1,3 +1,4 @@
+require("dotenv").config();
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -6,7 +7,9 @@ var routes = require('./controllers/routes.js');
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/css'));
+app.use(express.static(__dirname + '/public/images'));
+app.use(express.static(__dirname + '/public/js'));
 
 app.use(bodyParser.urlencoded({
 	extended: true
