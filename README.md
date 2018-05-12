@@ -3,11 +3,10 @@ An educational yet lighthearted approach to sexual safety.
 
 ## The Why
 Sexual Education isn't standard across every state, school district, and individual school. That being said, some individuals receive information and advice surrounding safe sex. Others receive informations similar to students in the hit movie *Mean Girls*. 
+
 ![Mean-Girls](https://media.giphy.com/media/3o7aTDP5aDFogC5KmY/giphy.gif)
 
 Let's not do ourselves a disservice by pretending that everyone will wait to have sex and will do so safely. Instead, let's educate ourselves on the risks of not practicing safe sex by showcasing the current rates of infection for the most common STDs.
-
-![BillNye](https://media.giphy.com/media/F0uAy4HVb6H0Q/giphy.gif)
 
 ## The How
 The following languages, packages, and libraries were used in the creation of this app:
