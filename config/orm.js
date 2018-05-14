@@ -67,7 +67,17 @@ var orm = {
 			}
 			cb(result);
 		});
-	}
+	},
+	//Joined tables
+	joinSelect: function (condition, cb) {
+		var queryString = `SELECT stis.name as STI, sti_rates.sti_cases as Cases FROM ((states INNER JOIN sti_rates ON states.id = sti_rates.state_id) INNER JOIN stis ON sti_rates.sti_id = stis.id) WHERE ?`
+		connection.query(queryString, [condition], function (err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		});
+	} 
 };
 // Export the orm object for the model.
 module.exports = orm;
