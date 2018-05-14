@@ -22,6 +22,11 @@ var stiRate = {
 		orm.delete("sti_rates", condition, function (res) {
 			cb(res);
 		});
+	},
+	joinSelect: function (condition, cb){
+		orm.joinSelect(condition, function(res){
+			cb(res);
+		})
 	}
 };
 

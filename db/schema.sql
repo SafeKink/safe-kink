@@ -6,21 +6,19 @@ USE kink_db;
 CREATE TABLE states (
   id INT KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
-  code VARCHAR(3) NOT NULL,
   population INT(10)
 );
 
 CREATE TABLE stis (
   id INT KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
-  code VARCHAR(45),
-  info LONGTEXT
+  info LONGTEXT 
 );
 
 CREATE TABLE sti_rates (
   id INT KEY NOT NULL AUTO_INCREMENT,
   sti_id INT(10) NOT NULL,
   state_id INT(10) NOT NULL,
-  rate INT(10),
-	year INT(4)
+	sti_cases INT(10),
+  rate INT(10)
 );

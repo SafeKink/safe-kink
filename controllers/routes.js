@@ -5,6 +5,7 @@ var state = require("../models/state");
 
 
 
+
 router.get("/", function(req, res) {
     res.render("index");
 });
