@@ -1,0 +1,20 @@
+<p>Sandbox Page</p>
+
+<!-- info goes here: {{yo.name}} -->
+<!--
+{{#each states}}
+	{{this.name}}
+{{/each}}
+-->
+<form action="/action_page.php">
+  <select name="cars">
+
+  	{{#each states}}
+    	<option value="{{this.name}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+  <br><br>
+
+  <input type="submit">
+</form>
