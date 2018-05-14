@@ -7,9 +7,13 @@ var routes = require('./controllers/routes.js');
 
 var app = express();
 
-app.use(express.static(__dirname + '/public/css'));
-app.use(express.static(__dirname + '/public/images'));
-app.use(express.static(__dirname + '/public/js'));
+// app.use(express.static(__dirname + '/public/css'));
+// app.use(express.static(__dirname + '/public/images'));
+// app.use(express.static(__dirname + '/public/js'));
+// app.use(express.static(__dirname + '/public/scss'));
+// app.use(express.static(__dirname + '/public/vendor'));
+
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({
 	extended: true
