@@ -6,8 +6,11 @@
 	{{this.name}}
 {{/each}}
 -->
-<form action="/action_page.php">
-  <select name="cars">
+
+
+
+<form action="">
+  <select>
 
   	{{#each states}}
     	<option value="{{this.name}}">{{this.name}}</option>
@@ -18,3 +21,17 @@
 
   <input type="submit">
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<script>
+$('select').on('change', function() {
+	console.log("a change has been made!!" + $(this).val() );
+	$('form').attr('action', '/api/states/' + $(this).val() + '?_method=POST');
+
+/* $('form').attr('action', 'city/' + $(this).val() + '/mobile.php'); /hello?_method=GET
+    //alert($('form').attr('action')); */
+});
+</script>

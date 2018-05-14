@@ -16,15 +16,17 @@ router.get("/sandbox", function(req, res) {
     var hbsObject = {
       states: data
     }; 
-
-    //var info = [{name: "shanti"}, {name: "shantero"}];
-
     var states = hbsObject.states
     //console.log(hbsObject.states[0].name);
    // console.log(JSON.stringify(hbsObject));
     //res.render("index");
-    res.render("sandbox", {states: states});
+    res.render("sandbox", {states: states, layout: 'sandboxL'});
   });
+});
+
+router.post("/api/states/:statePicked", function(req, res){
+  console.log("hello");
+  console.log("ok you are here now" + req.params.statePicked);
 });
 
 
@@ -40,10 +42,10 @@ router.get('/', function(req,res){
 		res.render('index');
 });
 */
-
+/*
 router.get('/sandbox', function(req,res){
 	res.render('sandbox', {layout: 'sandboxL' });
 });
-
+*/
 
 module.exports = router;
