@@ -55,22 +55,43 @@
 	var uStates={};
 		
 	uStates.draw = function(id, data, toolTip){		
-		function mouseOver(d){
-			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+		// function mouseOver(d){
+		// 	d3.select("#exampleModalCenter").transition().duration(200).style("opacity", .9);      
 			
-			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))  
-				.style("left", (d3.event.pageX) + "px")     
-				.style("top", (d3.event.pageY - 28) + "px");
-		}
+		// 	d3.select("#exampleModalCenter").html(toolTip(d.n, data[d.id]))  
+		// 		.style("left", (d3.event.pageX) + "px")     
+		// 		.style("top", (d3.event.pageY - 28) + "px");
+		// }
 		
-		function mouseOut(){
-			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
-		}
+		// function mouseOut(){
+		// 	d3.select("#exampleModalCenter").transition().duration(500).style("opacity", 0);      
+		// }
+		// function handleText () {
+		// 	for (var i = 0; i < d.length; i++) {
+		// 		// var id = data[d.id];
+		// 		console.log(d.id);
+		// 		// var high = data[i.high];
+		// 		// var low = data[i.low];
+		// 		$('.modal-body').text(id.low);
+		// 		$('.modal-body').text(id.high);
+		// 	}
+		// }
 		
 		d3.select(id).selectAll(".state")
-			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
+			.data(uStatePaths).enter().append("path")
+			.attr("class","state")
+			.attr("d",function(d){ return d.d;})
+			.attr("data-target", "#exampleModalCenter")
 			.style("fill",function(d){ return data[d.id].color; })
-			.on("mouseover", mouseOver).on("mouseout", mouseOut);
+			.on("click", function(d){
+				$('#exampleModalCenter').modal('show');
+				$('#exampleModalLongTitle').text(d.n);
+				$('.modal-body').text(data[d.id].low);
+				console.log(data[d.id]);
+				console.log(d.n);
+			});
+			// .on("click", mouseOver);
+			// .on("mouseout", mouseOut);
 	}
 	this.uStates=uStates;
 })();

@@ -24,9 +24,8 @@
         <div class="container">
           <h1 class="masthead-heading mb-0">sexual health risks</h1>
           <h3 class="masthead-subheading mb-0">Protect yourself from today's biggest dangers.</h3>
-          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+          <a href="#" class="open-modal btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
         </div>
-      </div>
       <!-- <div class="bg-circle-1 bg-circle" id="ball1"></div>
       <div class="bg-circle-2 bg-circle"></div>
       <div class="bg-circle-3 bg-circle"></div>
@@ -72,7 +71,30 @@
     <section>
       <div class="container" id="map">
           <div class="row">
-              <div id="tooltip"></div><!-- div to hold tooltip. -->
+              {{!-- <div id="tooltip"></div> --}}
+              <!-- div to hold tooltip. -->
+              <!-- Button trigger modal -->
+{{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> --}}
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
               <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
           </div>
       </div>
