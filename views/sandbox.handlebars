@@ -29,7 +29,7 @@
 <script>
 $('select').on('change', function() {
 	console.log("a change has been made!!" + $(this).val() );
-	$('form').attr('action', '/api/states/' + $(this).val() + '?_method=POST');
+	$('form').attr('action', '/api/states/' + $(this).val() + '?_method=GET');
 
 /* $('form').attr('action', 'city/' + $(this).val() + '/mobile.php'); /hello?_method=GET
     //alert($('form').attr('action')); */

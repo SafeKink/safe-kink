@@ -11,41 +11,26 @@ router.get("/", function(req, res) {
 });
 
 
+//1. populate drop down choices for user
 router.get("/sandbox", function(req, res) {
   state.all(function(data) {
-    var hbsObject = {
+    var info = {
       states: data
-    }; 
-    var states = hbsObject.states
-    //console.log(hbsObject.states[0].name);
-   // console.log(JSON.stringify(hbsObject));
-    //res.render("index");
-    res.render("sandbox", {states: states, layout: 'sandboxL'});
+    };
+    var states = info.states;
+    console.log(states);
+    res.render("sandbox", {states: states, layout: 'sandboxL'} );
   });
 });
 
-router.post("/api/states/:statePicked", function(req, res){
-  console.log("hello");
-  console.log("ok you are here now" + req.params.statePicked);
+
+//2. When user picks the state
+router.get("/api/states/:statePicked", function(req, res){
+
+ console.log("ok you are here now" + req.params.statePicked);
+ res.redirect('/sandbox');
+
 });
 
-
-/*
-router.get('/', function(req,res){
-	function result(res){
-		var show = res;
-		console.log("from the result function: " + show);
-	}
-
-	var theStates = state.all(result());
-	console.log("States: " + theStates);
-		res.render('index');
-});
-*/
-/*
-router.get('/sandbox', function(req,res){
-	res.render('sandbox', {layout: 'sandboxL' });
-});
-*/
 
 module.exports = router;
