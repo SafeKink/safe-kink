@@ -1,6 +1,6 @@
 console.log("Public safekink.js is online");
 
-function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
+function modalHtml(n, d){	/* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
       "<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
       "<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+
@@ -23,6 +23,8 @@ function tooltipHtml(n, d){	/* function to create html content string in tooltip
     });
   
   /* draw states on id #statesvg */	
-  uStates.draw("#statesvg", sampleData, tooltipHtml);
+  uStates.draw("#statesvg", sampleData, modalHtml);
   
   d3.select(self.frameElement).style("height", "600px"); 
+
+
