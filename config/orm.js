@@ -34,6 +34,16 @@ var orm = {
 			cb(result);
 		});
 	},
+	selectOne: function (table, cols, condition, cb ) {
+		var queryString = `SELECT ${cols.toString} FROM ${table} WHERE ?`;
+		// var queryString = "SELECT * FROM burgers";
+		connection.query(queryString, [condition], function (err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		});
+	},
 	create: function (table, cols, vals, cb) {
 		var queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES(${printQuestionMarks(vals.length)})`;
 		console.log(queryString);
