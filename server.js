@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 var routes = require('./controllers/routes.js');
+var stiRate = require("./models/stiRate");
+
 
 var app = express();
 
@@ -31,6 +33,22 @@ app.engine('handlebars', exphbs({
 }));
 
 app.set('view engine', 'handlebars');
+
+
+	app.get("/api/states/:statePicked", function(req, res){
+		console.log("this works");
+
+		var stateID = {"states.id": req.params.statePicked};
+	//send the info for processing to the database
+	stiRate.joinSelect(stateID, function(data){
+		//SEND THE RETRIEVED DATA TO THE FRONT END
+		console.log(data);
+	res.json(data);
+	});
+		//res.json(friendsData);
+});
+
+
 
 var PORT = 3000;
 app.listen(PORT, function(){

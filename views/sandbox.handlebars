@@ -13,20 +13,25 @@
   <select>
 
   	{{#each states}}
-    	<option value="{{this.name}}">{{this.name}}</option>
+    	<option value="{{this.id}}">{{this.name}}</option>
     {{/each}}
 
   </select>
   <br><br>
 
-  <input type="submit">
+  <button id="clicked">Submit</button>
 </form>
+
+
+<div class="inHere"></div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-
 <script>
+$( document ).ready(function() {
+
 $('select').on('change', function() {
 	console.log("a change has been made!!" + $(this).val() );
 	$('form').attr('action', '/api/states/' + $(this).val() + '?_method=GET');
@@ -34,4 +39,45 @@ $('select').on('change', function() {
 /* $('form').attr('action', 'city/' + $(this).val() + '/mobile.php'); /hello?_method=GET
     //alert($('form').attr('action')); */
 });
+
+$( "#clicked" ).click(function(event) {
+  event.preventDefault();
+
+  console.log("hello" + $('select').val() );
+
+
+ $.get("/api/states/" + $('select').val(), function( data ) {
+    console.log(data);
+
+    for(var i in data){
+      
+      var pSTI = data[i].STI;
+      var pCases = data[i].Cases;
+
+        $('.inHere').append(pSTI).append(pCases);
+    }
+
+
+  $( ".result" ).html( data );
+  var pTag = $('<p>');
+  pTag.append(data);
+  $('.inHere').append(pTag);
+});
+
+
+});
+
+}); //doc on ready
+
+/*
+  $.get("/api/states/:statePicked", function( data ) {
+    console.log("hello you called the ajax!");
+  $( ".result" ).html( data );
+  alert( "Load was performed." );
+});
+*/
 </script>
+
+
+
+
