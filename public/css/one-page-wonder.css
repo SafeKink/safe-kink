@@ -112,19 +112,6 @@ header.masthead .bg-circle-4 {
   right: 35%;
 }
 
-@media (min-width: 992px) {
-  header.masthead {
-    padding-top: calc(10rem + 55px);
-    padding-bottom: 10rem;
-  }
-  header.masthead .masthead-content .masthead-heading {
-    font-size: 6.5rem;
-  }
-  header.masthead .masthead-content .masthead-subheading {
-    font-size: 2.2rem;
-  }
-}
-
 .bg-primary {
   background-color: #ee0979 !important;
 }
@@ -213,15 +200,39 @@ div#map.container{
   margin: 0 0 0 16%;
 }
 
+/*media queries*/
+
+@media (min-width: 992px) {
+  header.masthead {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 10rem;
+  }
+  header.masthead .masthead-content .masthead-heading {
+    font-size: 6.5rem;
+  }
+  header.masthead .masthead-content .masthead-subheading {
+    font-size: 2.2rem;
+  }
+}
+
 @media screen and (max-width: 959px) {
   div#map.container{
     display: none;
   }
-}
-
-@media screen and (min-width: 959px) {
   header.masthead{
     height: 100vh;
   }
 }
 
+@media screen and (max-width: 833px) {
+  #dropDown {
+    display: block;
+    width: 800px;
+    height: auto;
+    text-align: center;
+    margin: 10px, auto, 10px, auto;
+  }
+  button.btn.btn-success.dropdown-toggle {
+    min-width: 150px;
+  }
+}
