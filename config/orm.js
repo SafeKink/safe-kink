@@ -80,7 +80,7 @@ var orm = {
 	},
 	//Joined tables
 	joinSelect: function (condition, cb) {
-		var queryString = `SELECT stis.name as STI, sti_rates.sti_cases as Cases FROM ((states INNER JOIN sti_rates ON states.id = sti_rates.state_id) INNER JOIN stis ON sti_rates.sti_id = stis.id) WHERE ?`
+		var queryString = `SELECT states.name as State, stis.name as STI, sti_rates.sti_cases as Cases, states.population as Population, (sti_rates.sti_cases / states.population * 1000) as Rate FROM ((states INNER JOIN sti_rates ON states.id = sti_rates.state_id) INNER JOIN stis ON sti_rates.sti_id = stis.id) WHERE  ?`
 		connection.query(queryString, [condition], function (err, result) {
 			if (err) {
 				throw err;
