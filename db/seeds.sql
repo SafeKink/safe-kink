@@ -61,12 +61,14 @@ VALUES
 /*
 -- stis table seeds
 */
-INSERT INTO `stis` (`id`,`name`,`info`)
-VALUES 
-(1,'Chlamydia',NULL),
-(2,'Gonorrhea',NULL),
-(3,'Primary and Secondary Syphilis',NULL),
-(4,'HIV',NULL);
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Chlamydia', 'Chlamydia is a common sexually transmitted infection that may not cause symptoms. It is caused by bacteria called Chlamydia trachomatis. Chlamydia affects people of all ages but is most common in young women. Many who have chlamydia don\'t develop symptoms, but they can still infect others through sexual contact. Symptoms may include genital pain and discharge from the vagina or penis.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Gonorrhea', 'Gonorrhea, also known as the clap, is an infection caused by the bacterium Neisseria gonorrhoeae. Symptoms include painful urination and abnormal discharge from the penis or vagina. Men may experience testicular pain and women may experience pain in the lower belly. In some cases, gonorrhea has no symptoms. It may cause infertility if left untreated.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Primary and Secondary Syphilis', 'Syphilis is a bacterial infection usually spread by sexual contact that starts as a painless sore. The first stage involves a painless sore on the genitals, rectum, or mouth. After the initial sore heals, the second stage is characterized by a rash. Then, there are no symptoms until the final stage which may occur years later. This final stage can result in damage to the brain, nerves, eyes, or heart.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('HIV', 'Human Immunodeficiency Virus, or HIV, is a virus can be transmitted through contact with infected blood, semen, or vaginal fluids. It harms the immune system by destroying the white blood cells that fight infection. Within a few weeks of HIV infection, flu-like symptoms such as fever, sore throat, and fatigue can occur. Then the disease is usually asymptomatic until it progresses to AIDS. AIDS symptoms include weight loss, fever or night sweats, fatigue, and recurrent infections.');
+
 
 /*
 -- sti_rates table seeds
