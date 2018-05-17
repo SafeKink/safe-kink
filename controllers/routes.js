@@ -4,13 +4,25 @@ var methodOverride = require('method-override');
 var state = require("../models/state");
 var stiRate = require("../models/stiRate");
 
-
+/*
 router.get("/", function(req, res) {
     res.render("index");
 });
-
+*/
 
 //1. populate drop down choices for user
+router.get("/", function(req, res) {
+  state.all(function(data) {
+    var info = {
+      states: data
+    };
+    var states = info.states;
+ //   console.log(states);
+    res.render("index", {states: states} );
+  });
+});
+
+
 router.get("/sandbox", function(req, res) {
   state.all(function(data) {
     var info = {
@@ -24,7 +36,7 @@ router.get("/sandbox", function(req, res) {
 
 
 //2. When user picks the states
-/*
+
 router.get("/api/states/:statePicked", function(req, res){
 	console.log("call the route");
 	//grab the user selected state id and put it in a stateID 
@@ -36,7 +48,7 @@ router.get("/api/states/:statePicked", function(req, res){
 	res.json(data);
 	});
 });
-*/
+
 
 	//joinSelect: function (condition, cb){
  //console.log("ok you are here now" + req.params.statePicked);

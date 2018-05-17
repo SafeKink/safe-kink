@@ -95,6 +95,21 @@
     </section>
 <!-- Section dropdown menu for states -->
     <section>
+      <form class="dropdown" action="">
+  <select>
+
+    {{#each states}}
+      <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+  <br><br>
+
+  <button id="clicked">Submit</button>
+  <div class="statesInfo"></div>
+
+</form>
+<!--
       <div class="container container-fluid" id="dropDown">
           <div class="row">
             <div class="col">
@@ -111,6 +126,7 @@
           </div>
         </div>
       </div>
+-->
     </section>
 <!-- END OF Section dropdown menu for states -->
 
@@ -139,3 +155,44 @@
       </div>
       <!-- /.container -->
     </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$( document ).ready(function() {
+
+//When change made
+$('select').on('change', function() {
+    console.log("a change has been made!!" + $(this).val() );
+    $('form.dropdown').attr('action', '/api/states/' + $(this).val() + '?_method=GET');
+  }); //select change
+
+  $( "#clicked" ).click(function(event) {
+    event.preventDefault();
+    console.log("hello" + $('select').val() );
+
+   $.get("/api/states/" + $('select').val(), function( data ) {
+      console.log(data);
+
+      $(".statesInfo").empty();
+
+      for(var i in data){
+        
+        var pSTI = data[i].STI;
+        var pCases = data[i].Cases;
+        var pPopulation = data[i].Population;
+        var pRate = data[i].Rate;
+
+        var newLine = $('<br />');
+        $('.statesInfo').append(pSTI).append(pCases).append(pPopulation).append(pRate).append(newLine);
+      }
+      $( ".result" ).html( data );
+      var pTag = $('<p>');
+      pTag.append(data);
+      $('.stateInfo').append(pTag);
+    });
+ });
+}); //doc ready
+
+</script>
