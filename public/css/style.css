@@ -224,3 +224,12 @@ body {
 	  height: 100vh;
 	}
   }
+
+  button {
+  cursor: pointer;
+  color: white;
+  background-color: var(--blue);
+  font-size: 24px;
+  border: none;
+  padding: 20px 25px;
+}
