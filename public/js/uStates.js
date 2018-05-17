@@ -84,11 +84,43 @@
 			.attr("data-target", "#exampleModalCenter")
 			.style("fill",function(d){ return data[d.id].color; })
 			.on("click", function(d){
-				$('#exampleModalCenter').modal('show');
-				$('#exampleModalLongTitle').text(d.n);
-				$('.modal-body').text(data[d.id].low);
-				console.log(data[d.id]);
 				console.log(d.n);
+				$.get("/api/states/" + d.n, function(data) {
+					console.log(data);
+					// console.log(Math.max(data[0].Cases, data[1].Cases, data[2].Cases, data[3].Cases));
+					var maxSti= Math.max(data[0].Cases, data[1].Cases, data[2].Cases, data[3].Cases);
+					
+					for (var i = 0; i < data.length; i ++){
+						if (maxSti == data[i].Cases){
+							$('#exampleModalCenter').modal('show');
+							$('#exampleModalLongTitle').text(data[i].STI);
+						}
+
+					}
+					// $('#exampleModalCenter').modal('show');
+					// $('#exampleModalLongTitle').text(data[0].STI);
+					// for(var i in data){
+					  
+					//   var pSTI = data[i].STI;
+					//   var pCases = data[i].Cases;
+				
+					// 	$('.inHere').append(pSTI).append(pCases);
+					// }
+				
+				
+				//   $( ".result" ).html( data );
+				//   var pTag = $('<p>');
+				//   pTag.append(data);
+				//   $('.inHere').append(pTag);
+					// $('#exampleModalCenter').modal('show');
+					// $('#exampleModalLongTitle').text(d.n);
+					// $('.modal-body').text(data[d.id].low);
+				});
+				// $('#exampleModalCenter').modal('show');
+				// $('#exampleModalLongTitle').text(d.n);
+				// $('.modal-body').text(data[d.id].low);
+				// console.log(data[d.id]);
+				// console.log(d.n);
 			});
 			// .on("click", mouseOver);
 			// .on("mouseout", mouseOut);
