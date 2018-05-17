@@ -1,11 +1,18 @@
 console.log("Public safekink.js is online");
 
-function modalHtml(n, d){	/* function to create html content string in tooltip div. */
-    return "<h4>"+n+"</h4><table>"+
-      "<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
-      "<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+
-      "<tr><td>High</td><td>"+(d.high)+"</td></tr>"+
-      "</table>";
+function modalHtml(data){	/* function to create html content string in tooltip div. */
+  console.log(data[1].STI)
+    return
+      "<ul>" +
+      "<li> Chlamydia: " + data[0].Cases +
+      "</ul"; 
+      
+      // "<table>" +
+      // "<tr><td>Chlamydia:</td><td>"+ data[0].Cases +"</td></tr>"+
+      // "<tr><td>Gonorrhea:</td><td>"+ data[1].Cases +"</td></tr>"+
+      // "<tr><td>Primary and Secondary Syphilis:</td><td>"+ data[2].Cases +"</td></tr>"+
+      // "<tr><td>HIV:</td><td>"+ data[3].Cases +"</td></tr>"+
+      // "</table>";
   }
   
   var sampleData ={};	/* Sample random data. */	

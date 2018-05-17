@@ -54,7 +54,7 @@
 	];
 	var uStates={};
 		
-	uStates.draw = function(id, data, toolTip){		
+	uStates.draw = function(id, data, modalText){		
 		// function mouseOver(d){
 		// 	d3.select("#exampleModalCenter").transition().duration(200).style("opacity", .9);      
 			
@@ -88,15 +88,22 @@
 				$.get("/api/states/" + d.n, function(data) {
 					console.log(data);
 					// console.log(Math.max(data[0].Cases, data[1].Cases, data[2].Cases, data[3].Cases));
-					var maxSti= Math.max(data[0].Cases, data[1].Cases, data[2].Cases, data[3].Cases);
+					// var maxSti= Math.max(data[0].Cases, data[1].Cases, data[2].Cases, data[3].Cases);
 					
-					for (var i = 0; i < data.length; i ++){
-						if (maxSti == data[i].Cases){
-							$('#exampleModalCenter').modal('show');
-							$('#exampleModalLongTitle').text(data[i].STI);
-						}
+					// for (var i = 0; i < data.length; i ++){
+					// 	if (maxSti == data[i].Cases){
+					// 		$('#exampleModalCenter').modal('show');
+					// 		$('#exampleModalLongTitle').text(data[i].STI);
+					// 	}
 
-					}
+					// }
+					$('#exampleModalCenter').modal('show');
+					$('#exampleModalLongTitle').text(d.n);
+					$('#td0').text(data[0].Cases);
+					$('#td1').text(data[1].Cases);
+					$('#td2').text(data[2].Cases);
+					$('#td3').text(data[3].Cases);
+
 					// $('#exampleModalCenter').modal('show');
 					// $('#exampleModalLongTitle').text(data[0].STI);
 					// for(var i in data){
