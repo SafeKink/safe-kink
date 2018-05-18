@@ -22,6 +22,11 @@ var state = {
 		orm.delete("states", condition, function (res) {
 			cb(res);
 		});
+	},
+	selectOne: function (cols, condition, cb) {
+		orm.selectOne("states", cols, condition ,function (res) {
+			cb(res);
+		});
 	}
 };
 

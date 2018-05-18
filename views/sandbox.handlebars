@@ -23,11 +23,13 @@
 </form>
 
 
-<div class="inHere"></div>
+<div class="statesInfo"></div>
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="sti.js"></script>
 
 <script>
 $( document ).ready(function() {
@@ -45,7 +47,6 @@ $( "#clicked" ).click(function(event) {
 
   console.log("hello" + $('select').val() );
 
-
  $.get("/api/states/" + $('select').val(), function( data ) {
     console.log(data);
 
@@ -53,15 +54,16 @@ $( "#clicked" ).click(function(event) {
       
       var pSTI = data[i].STI;
       var pCases = data[i].Cases;
+      STI.p
 
-        $('.inHere').append(pSTI).append(pCases);
+        $('.statesInfo').append(pSTI).append(pCases);
     }
 
 
   $( ".result" ).html( data );
   var pTag = $('<p>');
   pTag.append(data);
-  $('.inHere').append(pTag);
+  $('.stateInfo').append(pTag);
 });
 
 

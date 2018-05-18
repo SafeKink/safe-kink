@@ -56,14 +56,17 @@ UsStateAbbr = {"United States":"US","Alabama":"AL","Alaska":"AK","Arizona":"AZ",
 	var uStates={};
 		
 
+
 	uStates.draw = function(id, data, modalText){		
 		console.log(data);
+
 
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path")
 			.attr("class","state")
 			.attr("d",function(d){ return d.d;})
 			.attr("data-target", "#exampleModalCenter")
+
 			.attr("data-name", (d)=>d.n)
 			// .style("fill",function(d) {return data[d.n].color;})
 			// .style("fill",function(d) {debugger; return data[d.n].color;})
@@ -113,6 +116,7 @@ UsStateAbbr = {"United States":"US","Alabama":"AL","Alaska":"AK","Arizona":"AZ",
 				// console.log(data[d.id]);
 				// console.log(d.n);
 			});
+
 	}
 	this.uStates=uStates;
 })();

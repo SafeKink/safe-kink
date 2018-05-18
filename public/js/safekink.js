@@ -1,5 +1,6 @@
 console.log("Public safekink.js is online");
 
+
 function modalHtml(data){	/* function to create html content string in tooltip div. */
   // console.log(data[1].STI)
     return
@@ -54,7 +55,9 @@ function modalHtml(data){	/* function to create html content string in tooltip d
     console.log(sampleData);
 
   /* draw states on id #statesvg */	
+
   // uStates.draw("#statesvg", sampleData, modalHtml);
+
   
   d3.select(self.frameElement).style("height", "600px"); 
 

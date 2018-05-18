@@ -3,70 +3,72 @@ USE kink_db;
 /*
 -- states table seeds
 */
-INSERT INTO `states` (`id`,`name`,`population`) 
+INSERT INTO `states` (`id`,`code`,`name`,`population`) 
 VALUES 
-(1,'Alabama',4833722),
-(2,'Alaska',735132),
-(3,'Arizona',6626624),
-(4,'Arkansas',2959373),
-(5,'California',38332521),
-(6,'Colorado',5268367),
-(7,'Connecticut',3596080),
-(8,'Delaware',925749),
-(9,'District of Columbia',646449),
-(10,'Florida',19552860),
-(11,'Georgia',9992167),
-(12,'Hawaii',1404054),
-(13,'Idaho',1612136),
-(14,'Illinois',12882135),
-(15,'Indiana',6570902),
-(16,'Iowa',3090416),
-(17,'Kansas',2893957),
-(18,'Kentucky',4395295),
-(19,'Louisiana',4625470),
-(20,'Maine',1328302),
-(21,'Maryland',5928814),
-(22,'Massachusetts',6692824),
-(23,'Michigan',9895622),
-(24,'Minnesota',5420380),
-(25,'Mississippi',2991207),
-(26,'Missouri',6044171),
-(27,'Montana',1015165),
-(28,'Nebraska',1868516),
-(29,'Nevada',2790136),
-(30,'New Hampshire',1323459),
-(31,'New Jersey',8899339),
-(32,'New Mexico',2085287),
-(33,'New York',19651127),
-(34,'North Carolina',9848060),
-(35,'North Dakota',723393),
-(36,'Ohio',11570808),
-(37,'Oklahoma',3850568),
-(38,'Oregon',3930065),
-(39,'Pennsylvania',12773801),
-(40,'Rhode Island',1051511),
-(41,'South Carolina',4774839),
-(42,'South Dakota',844877),
-(43,'Tennessee',6495978),
-(44,'Texas',26448193),
-(45,'Utah',2900872),
-(46,'Vermont',626630),
-(47,'Virginia',8260405),
-(48,'Washington',6971406),
-(49,'West Virginia',1854304),
-(50,'Wisconsin',5742713),
-(51,'Wyoming',582658);
+(1,'AL','Alabama',4833722),
+(2,'AK','Alaska',735132),
+(3,'AZ','Arizona',6626624),
+(4,'AR','Arkansas',2959373),
+(5,'CA','California',38332521),
+(6,'CO','Colorado',5268367),
+(7,'CT','Connecticut',3596080),
+(8,'DE','Delaware',925749),
+(9,'DC','District of Columbia',646449),
+(10,'FL','Florida',19552860),
+(11,'GA','Georgia',9992167),
+(12,'HI','Hawaii',1404054),
+(13,'ID','Idaho',1612136),
+(14,'IL','Illinois',12882135),
+(15,'IN','Indiana',6570902),
+(16,'IA','Iowa',3090416),
+(17,'KS','Kansas',2893957),
+(18,'KY','Kentucky',4395295),
+(19,'LA','Louisiana',4625470),
+(20,'ME','Maine',1328302),
+(21,'MD','Maryland',5928814),
+(22,'MA','Massachusetts',6692824),
+(23,'MI','Michigan',9895622),
+(24,'MN','Minnesota',5420380),
+(25,'MS','Mississippi',2991207),
+(26,'MO','Missouri',6044171),
+(27,'MT','Montana',1015165),
+(28,'NE','Nebraska',1868516),
+(29,'NV','Nevada',2790136),
+(30,'NH','New Hampshire',1323459),
+(31,'NJ','New Jersey',8899339),
+(32,'NM','New Mexico',2085287),
+(33,'NY','New York',19651127),
+(34,'NC','North Carolina',9848060),
+(35,'ND','North Dakota',723393),
+(36,'OH','Ohio',11570808),
+(37,'OK','Oklahoma',3850568),
+(38,'OR','Oregon',3930065),
+(39,'PA','Pennsylvania',12773801),
+(40,'RI','Rhode Island',1051511),
+(41,'SC','South Carolina',4774839),
+(42,'SD','South Dakota',844877),
+(43,'TN','Tennessee',6495978),
+(44,'TX','Texas',26448193),
+(45,'UT','Utah',2900872),
+(46,'VT','Vermont',626630),
+(47,'VA','Virginia',8260405),
+(48,'WA','Washington',6971406),
+(49,'WV','West Virginia',1854304),
+(50,'WI','Wisconsin',5742713),
+(51,'WY','Wyoming',582658);
 
 
 /*
 -- stis table seeds
 */
-INSERT INTO `stis` (`id`,`name`,`info`)
-VALUES 
-(1,'Chlamydia',NULL),
-(2,'Gonorrhea',NULL),
-(3,'Primary and Secondary Syphilis',NULL),
-(4,'HIV',NULL);
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Chlamydia', 'Chlamydia is a common sexually transmitted infection that may not cause symptoms. It is caused by bacteria called Chlamydia trachomatis. Chlamydia affects people of all ages but is most common in young women. Many who have chlamydia don\'t develop symptoms, but they can still infect others through sexual contact. Symptoms may include genital pain and discharge from the vagina or penis.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Gonorrhea', 'Gonorrhea, also known as the clap, is an infection caused by the bacterium Neisseria gonorrhoeae. Symptoms include painful urination and abnormal discharge from the penis or vagina. Men may experience testicular pain and women may experience pain in the lower belly. In some cases, gonorrhea has no symptoms. It may cause infertility if left untreated.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('Primary and Secondary Syphilis', 'Syphilis is a bacterial infection usually spread by sexual contact that starts as a painless sore. The first stage involves a painless sore on the genitals, rectum, or mouth. After the initial sore heals, the second stage is characterized by a rash. Then, there are no symptoms until the final stage which may occur years later. This final stage can result in damage to the brain, nerves, eyes, or heart.');
+
+INSERT INTO `kink_db`.`stis` (`name`, `info`) VALUES ('HIV', 'Human Immunodeficiency Virus, or HIV, is a virus can be transmitted through contact with infected blood, semen, or vaginal fluids. It harms the immune system by destroying the white blood cells that fight infection. Within a few weeks of HIV infection, flu-like symptoms such as fever, sore throat, and fatigue can occur. Then the disease is usually asymptomatic until it progresses to AIDS. AIDS symptoms include weight loss, fever or night sweats, fatigue, and recurrent infections.');
+
 
 /*
 -- sti_rates table seeds

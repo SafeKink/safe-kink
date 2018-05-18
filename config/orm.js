@@ -34,6 +34,16 @@ var orm = {
 			cb(result);
 		});
 	},
+	selectOne: function (table, cols, condition, cb ) {
+		var queryString = `SELECT ${cols.toString} FROM ${table} WHERE ?`;
+		// var queryString = "SELECT * FROM burgers";
+		connection.query(queryString, [condition], function (err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		});
+	},
 	create: function (table, cols, vals, cb) {
 		var queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES(${printQuestionMarks(vals.length)})`;
 		console.log(queryString);
@@ -70,7 +80,7 @@ var orm = {
 	},
 	//Joined tables
 	joinSelect: function (condition, cb) {
-		var queryString = `SELECT stis.name as STI, sti_rates.sti_cases as Cases FROM ((states INNER JOIN sti_rates ON states.id = sti_rates.state_id) INNER JOIN stis ON sti_rates.sti_id = stis.id) WHERE ?`
+		var queryString = `SELECT states.name as State, stis.name as STI, sti_rates.sti_cases as Cases, states.population as Population, (sti_rates.sti_cases / states.population * 1000) as Rate FROM ((states INNER JOIN sti_rates ON states.id = sti_rates.state_id) INNER JOIN stis ON sti_rates.sti_id = stis.id) WHERE  ?`
 		connection.query(queryString, [condition], function (err, result) {
 			if (err) {
 				throw err;

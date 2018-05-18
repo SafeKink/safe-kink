@@ -5,6 +5,7 @@ USE kink_db;
 
 CREATE TABLE states (
   id INT KEY NOT NULL AUTO_INCREMENT,
+  code VARCHAR(2) NOT NULL,
   name VARCHAR(45) NOT NULL,
   population INT(10)
 );
