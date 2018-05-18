@@ -55,8 +55,10 @@ UsStateAbbr = {"United States":"US","Alabama":"AL","Alaska":"AK","Arizona":"AZ",
 	];
 	var uStates={};
 		
+
 	uStates.draw = function(id, data, modalText){		
 		console.log(data);
+
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path")
 			.attr("class","state")
@@ -111,8 +113,6 @@ UsStateAbbr = {"United States":"US","Alabama":"AL","Alaska":"AK","Arizona":"AZ",
 				// console.log(data[d.id]);
 				// console.log(d.n);
 			});
-			// .on("click", mouseOver);
-			// .on("mouseout", mouseOut);
 	}
 	this.uStates=uStates;
 })();

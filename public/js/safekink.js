@@ -18,6 +18,7 @@ function modalHtml(data){	/* function to create html content string in tooltip d
   uStates.draw("#statesvg", sampleData, modalHtml);
   
   var sampleData ={};	/* Sample random data. */	
+
   // ["Hawaii", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
   // "ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH", 
   // "MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT", 
@@ -51,6 +52,7 @@ function modalHtml(data){	/* function to create html content string in tooltip d
       });
     });
     console.log(sampleData);
+
   /* draw states on id #statesvg */	
   // uStates.draw("#statesvg", sampleData, modalHtml);
   
