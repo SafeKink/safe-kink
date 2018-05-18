@@ -2,6 +2,7 @@ body {
   font-family: 'Lato';
 }
 
+
 h1, h2{
   font-family: 'Modak', cursive;
 }
@@ -224,6 +225,7 @@ div#map.container{
   }
 }
 
+
 @media screen and (max-width: 833px) {
   #dropDown {
     display: block;
@@ -242,3 +244,4 @@ div#map.container{
     display: none;
   }
 }
+

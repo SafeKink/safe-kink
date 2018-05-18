@@ -1,72 +1,62 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">SafeKink</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">State Info</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<header class="masthead text-center text-white">
-  <div class="masthead-content">
-    <div class="container container-fluid">
-      <h1 class="masthead-heading mb-0">sexual health risks</h1>
-      <h3 class="masthead-subheading mb-0">Protect yourself from today's biggest dangers.</h3>
-      <a href="#" class="open-modal btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
-    </div>
-</header>
-
-<section id="about">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2">
-        <div class="p-5">
-          <img class="img-fluid rounded-circle" src="./images/01.jpg" alt="">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Safe Kink</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#map">State Info</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="p-5">
-          {{#each stis}}
-            <h2 class="display-4">{{this.name}}</h2>
-            <p>
-              {{this.info}}
-            </p>
-          {{/each}}
+    </nav>
+
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">sexual health risks</h1>
+          <h3 class="masthead-subheading mb-0">Sex is fun! But you have to play it safe…</h3>
+          <a href="#about" class="open-modal btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
+
 
 {{!--     <section>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="./images/02.jpg" alt="">
+
+              <img class="img-fluid rounded-circle" src="./images/couple.jpg" alt="">
+
             </div>
           </div>
           <div class="col-lg-6">
             <div class="p-5">
-              <h2 class="display-4">We salute you!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+
+              <h2 class="display-4">Why Safe Kink?</h2>
+              <p>
+                We wanted to create a website that approached STDs in an informative and lighthearted way. It took us some time to gather the most up-to-date information regarding the country's top STD's and we still felt as if there was more missing to the story. <br>
+                <br>
+                  Like, how would someone in Idaho know they're at risk for Gonorrhea and what are the symptoms? Or, is Florida <em>really</em> the top state in terms of reported cases? <br>
+                <br>
+                We can all agree that sex education across each state differs greatly. With that in mind, we've created this website as a one-stop shop for information regarding top STDs in each state. 
+              </p>
+
             </div>
           </div>
         </div>
       </div>
     </section> --}}
+
 
 <section>
   <div class="container" id="map">
@@ -88,6 +78,14 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="p-5">
+              <h2 class="display-4">Pick your state</h2>
+
             </div>
           </div>
         </div>
@@ -118,7 +116,8 @@
   <!--
       <div class="container container-fluid" id="dropDown">
           <div class="row">
-            <div class="col">
+
+ <!--   commenting this out        <div class="col">
               <div class="btn-group">
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   State
@@ -128,7 +127,47 @@
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-              </div>
+              </div> -->
+
+              {{!-- <div id="tooltip"></div> --}}
+              <!-- div to hold tooltip. -->
+              <!-- Button trigger modal -->
+{{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> --}}
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <tr>
+            <td>Chlamydia:</td><td id="td0"></td>
+          </tr>
+          <tr>
+            <td>Gonorrhea:</td><td id="td1"></td>
+          </tr>
+          <tr>
+            <td>Primary and Secondary Syphilis:</td><td id="td2"></td>
+          </tr>
+          <tr>
+            <td>HIV:</td><td id="td3"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+              <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+
           </div>
         </div>
       </div>
@@ -136,20 +175,30 @@
 </section>
 <!-- END OF Section dropdown menu for states -->
 
-<section>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2">
-        <div class="p-5">
-          <img class="img-fluid rounded-circle" src="./images/03.jpg" alt="">
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="./images/03.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">Need more info?</h2>
+              <p>We're working on it! Our goal is to help easily educate anyone on the potential risks they face in their state when it comes to contracting a sexual disease. We'll continue to add more STDs to the map in order to better inform the public.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="p-5">
-          <h2 class="display-4">Let there be rock!</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda
-            amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; Safe Kink 2018</p>
+
       </div>
     </div>
   </div>

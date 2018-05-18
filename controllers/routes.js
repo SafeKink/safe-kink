@@ -56,7 +56,7 @@ router.get("/sandbox", function(req, res) {
 router.get("/api/states/:statePicked", function(req, res){
 	console.log("call the route");
 	//grab the user selected state id and put it in a stateID 
-	var stateID = {"states.id": req.params.statePicked};
+	var stateID = {"states.name": req.params.statePicked};
 
 	//send the info for processing to the database
 	stiRate.joinSelect(stateID, function(data){
