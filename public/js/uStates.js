@@ -55,27 +55,6 @@
 	var uStates={};
 		
 	uStates.draw = function(id, data, toolTip){		
-		// function mouseOver(d){
-		// 	d3.select("#exampleModalCenter").transition().duration(200).style("opacity", .9);      
-			
-		// 	d3.select("#exampleModalCenter").html(toolTip(d.n, data[d.id]))  
-		// 		.style("left", (d3.event.pageX) + "px")     
-		// 		.style("top", (d3.event.pageY - 28) + "px");
-		// }
-		
-		// function mouseOut(){
-		// 	d3.select("#exampleModalCenter").transition().duration(500).style("opacity", 0);      
-		// }
-		// function handleText () {
-		// 	for (var i = 0; i < d.length; i++) {
-		// 		// var id = data[d.id];
-		// 		console.log(d.id);
-		// 		// var high = data[i.high];
-		// 		// var low = data[i.low];
-		// 		$('.modal-body').text(id.low);
-		// 		$('.modal-body').text(id.high);
-		// 	}
-		// }
 		
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path")
@@ -90,8 +69,6 @@
 				console.log(data[d.id]);
 				console.log(d.n);
 			});
-			// .on("click", mouseOver);
-			// .on("mouseout", mouseOut);
 	}
 	this.uStates=uStates;
 })();
