@@ -1,5 +1,4 @@
 <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Safe Kink</a>
@@ -28,20 +27,16 @@
         </div>
     </header>
 
-
-{{!--     <section>
+    <section id="about">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6 order-lg-2">
             <div class="p-5">
-
-              <img class="img-fluid rounded-circle" src="./images/couple.jpg" alt="">
-
+              <img class="img-fluid rounded-circle" src="./images/couple-laughing.jpg" alt="">
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-
               <h2 class="display-4">Why Safe Kink?</h2>
               <p>
                 We wanted to create a website that approached STDs in an informative and lighthearted way. It took us some time to gather the most up-to-date information regarding the country's top STD's and we still felt as if there was more missing to the story. <br>
@@ -50,85 +45,28 @@
                 <br>
                 We can all agree that sex education across each state differs greatly. With that in mind, we've created this website as a one-stop shop for information regarding top STDs in each state. 
               </p>
-
             </div>
           </div>
         </div>
       </div>
-    </section> --}}
-
-
-<section>
-  <div class="container" id="map">
-    <div class="row">
-      {{!-- <div id="tooltip"></div> --}}
-      <!-- div to hold tooltip. -->
-      <!-- Button trigger modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+    </section>
 
     <section>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="p-5">
-              <h2 class="display-4">Pick your state</h2>
-
+              <h2 class="display-4">How to use</h2>
+              <p>Simply click on the state you want more info on. The results might surprise you...</p>
             </div>
           </div>
         </div>
       </div>
-      {{!-- modal ends --}}
-      <svg width="960" height="600" id="statesvg"></svg>
-      <!-- svg to hold the map. -->
-    </div>
-  </div>
-</section>
-<!-- Section dropdown menu for states -->
-<section>
-  <form class="dropdown" action="">
-    <select>
+    </section>
 
-      {{#each states}}
-        <option value="{{this.id}}">{{this.name}}</option>
-      {{/each}}
-
-    </select>
-    <br>
-    <br>
-
-    <button id="clicked">Submit</button>
-    <div class="statesInfo"></div>
-
-  </form>
-  <!--
-      <div class="container container-fluid" id="dropDown">
+    <section>
+      <div class="container" id="map">
           <div class="row">
-
- <!--   commenting this out        <div class="col">
-              <div class="btn-group">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  State
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div> -->
-
               {{!-- <div id="tooltip"></div> --}}
               <!-- div to hold tooltip. -->
               <!-- Button trigger modal -->
@@ -167,14 +105,9 @@
   </div>
 </div>
               <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
-
           </div>
-        </div>
       </div>
--->
-</section>
-<!-- END OF Section dropdown menu for states -->
-
+    </section>
 
     <section>
       <div class="container">
@@ -198,57 +131,6 @@
     <footer class="py-5 bg-black">
       <div class="container">
         <p class="m-0 text-center text-white small">Copyright &copy; Safe Kink 2018</p>
-
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="py-5 bg-black">
-  <div class="container">
-    <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
-  </div>
-  <!-- /.container -->
-</footer>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script>
-  $(document).ready(function () {
-
-    //When change made
-    $('select').on('change', function () {
-      console.log("a change has been made!!" + $(this).val());
-      $('form.dropdown').attr('action', '/api/states/' + $(this).val() + '?_method=GET');
-    }); //select change
-
-    $("#clicked").click(function (event) {
-      event.preventDefault();
-      console.log("hello" + $('select').val());
-
-      $.get("/api/states/" + $('select').val(), function (data) {
-        console.log(data);
-
-        $(".statesInfo").empty();
-
-        for (var i in data) {
-
-          var pSTI = data[i].STI;
-          var pCases = data[i].Cases;
-          var pPopulation = data[i].Population;
-          var pRate = data[i].Rate;
-
-          var newLine = $('<br />');
-          $('.statesInfo').append(pSTI).append(pCases).append(pPopulation).append(pRate).append(newLine);
-        }
-        $(".result").html(data);
-        var pTag = $('<p>');
-        pTag.append(data);
-        $('.stateInfo').append(pTag);
-      });
-    });
-  }); //doc ready
-
-</script>
+      <!-- /.container -->
+    </footer>
