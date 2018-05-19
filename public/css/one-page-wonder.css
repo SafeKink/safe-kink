@@ -207,6 +207,7 @@ div#map.container{
   header.masthead {
     padding-top: calc(10rem + 55px);
     padding-bottom: 10rem;
+    height:100vh;
   }
   header.masthead .masthead-content .masthead-heading {
     font-size: 6.5rem;
