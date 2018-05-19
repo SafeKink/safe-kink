@@ -1,5 +1,18 @@
 console.log("Public safekink.js is online");
 
+var jokesArray = [
+  `A patient says, 'Doctor, can I get AIDS from a toilet seat?' The doctor replies, 'Yes, but only by sitting down before the last guy gets up.'`,
+  `My father told me all about the birds and the bees--the liar. I went steady with a woodpecker till I was twenty-one.`,
+  `Sex. In America an obsession. In other parts of the world a fact.`,
+  `Kinky is using a feather. Perverted is using the whole chicken.`,
+  `Be naughty--save Santa a trip.`,
+  `Having sex is like playing bridge. If you don't have a good partner, you'd better have a good hand.`
+  ];
+
+var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
+
+$("#jokes").text(jokeChoice);
+
 
 function modalHtml(data){	/* function to create html content string in tooltip div. */
   // console.log(data[1].STI)

@@ -25,6 +25,7 @@
           <h3 class="masthead-subheading mb-0">Sex is fun! But you have to play it safe…</h3>
           <a href="#about" class="open-modal btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
         </div>
+      </div>
     </header>
 
     <section id="about">
@@ -54,9 +55,22 @@
     <section>
       <div class="container">
         <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="p-5">
+              <h2 id="jokes"></h2>
+              <p>Sex is funny - STD's are not!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="p-5">
-              <h2 class="display-4">Pick your state</h2>
+              <h2 class="display-4">Check out your state:</h2>
               <p>Simply click on the state you want more info on. The results might surprise you...</p>
             </div>
           </div>
@@ -67,45 +81,70 @@
     <section>
       <div class="container" id="map">
           <div class="row">
-              {{!-- <div id="tooltip"></div> --}}
-              <!-- div to hold tooltip. -->
-              <!-- Button trigger modal -->
-{{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button> --}}
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table class="table table-striped">
-          <tr>
-            <td>Chlamydia:</td><td id="td0"></td>
-          </tr>
-          <tr>
-            <td>Gonorrhea:</td><td id="td1"></td>
-          </tr>
-          <tr>
-            <td>Primary and Secondary Syphilis:</td><td id="td2"></td>
-          </tr>
-          <tr>
-            <td>HIV:</td><td id="td3"></td>
-          </tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-              <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-striped">
+                  <thead>
+                    <th scope="col">Total Cases</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Chlamydia:</td><td id="td0"></td>
+                    </tr>
+                    <tr>
+                      <td>Gonorrhea:</td><td id="td1"></td>
+                    </tr>
+                    <tr>
+                      <td>Primary and Secondary Syphilis:</td><td id="td2"></td>
+                    </tr>
+                    <tr>
+                      <td>HIV:</td><td id="td3"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="card-text"><small class="text-muted">data from cdc.gov</small></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
+        </div>
+        <svg width="960" height="600" id="statesvg"></svg>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container" id="cards">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="card-group">
+              {{#each stis}}
+              <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                      {{this.name}}
+                    </h5>
+                    <p class="card-text">
+                      {{this.info}}
+                    </p>
+                  <p class="card-text"><small class="text-muted">data from cdc.gov</small></p>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -127,10 +166,40 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container">
         <p class="m-0 text-center text-white small">Copyright &copy; Safe Kink 2018</p>
       </div>
-      <!-- /.container -->
     </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    //When change made
+    $('select').on('change', function () {
+      console.log("a change has been made!!" + $(this).val());
+      $('form.dropdown').attr('action', '/api/states/' + $(this).val() + '?_method=GET');
+    }); //select change
+    $("#clicked").click(function (event) {
+      event.preventDefault();
+      console.log("hello" + $('select').val());
+      $.get("/api/states/" + $('select').val(), function (data) {
+        console.log(data);
+        $(".statesInfo").empty();
+        for (var i in data) {
+          var pSTI = data[i].STI;
+          var pCases = data[i].Cases;
+          var pPopulation = data[i].Population;
+          var pRate = data[i].Rate;
+          var newLine = $('<br />');
+          $('.statesInfo').append(pSTI).append(pCases).append(pPopulation).append(pRate).append(newLine);
+        }
+        $(".result").html(data);
+        var pTag = $('<p>');
+        pTag.append(data);
+        $('.stateInfo').append(pTag);
+      });
+    });
+  }); //doc ready
+</script>
