@@ -192,13 +192,17 @@ header.masthead .bg-circle-4 {
   text-align:center;
 }
 
-svg#statesvg{
+/* svg#statesvg{
   border: 1px solid black;
-}
+} */
 
 div#map.container{
   padding: 0;
   margin: 0 0 0 16%;
+}
+
+#cards{
+  margin-top: 50px;
 }
 
 /*media queries*/
