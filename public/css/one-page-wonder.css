@@ -1,4 +1,4 @@
-body {
+body, p, .card-title, .card-text {
   font-family: 'Lato';
 }
 
@@ -9,6 +9,7 @@ h1, h2{
 
 h3,
 h4,
+#jokes,
 h5,
 h6 {
   font-family: 'Lato';
